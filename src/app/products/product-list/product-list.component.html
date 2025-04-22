@@ -1,0 +1,20 @@
+<div class="product-list-container">
+    <app-product-form></app-product-form>
+    <hr />
+    <h2>Lista de Productos</h2>
+  
+    <!-- Mensaje de carga -->
+    <div *ngIf="loading">Cargando productos...</div>
+  
+    <!-- Mensaje de error -->
+    <div *ngIf="error" class="error">{{ error }}</div>
+  
+    <!-- Lista de productos -->
+    <ul *ngIf="!loading && !error">
+      <li *ngFor="let prod of products">
+        <strong>{{ prod.name }}</strong> - ${{ prod.price }}
+      </li>
+      <li *ngIf="products.length === 0">No hay productos disponibles.</li>
+    </ul>
+  </div>
+  

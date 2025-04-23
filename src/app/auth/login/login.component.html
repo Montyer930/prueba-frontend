@@ -1,23 +1,27 @@
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="p-3 border rounded">
-    <h3>Iniciar Sesión</h3>
-  
-    <div class="mb-3">
-      <label class="form-label">Email</label>
-      <input type="email" class="form-control" formControlName="email" />
-      <div *ngIf="submitted && loginForm.controls['email'].invalid" class="text-danger">
-        Email inválido.
+<div class="login-container">
+  <div class="login-card">
+    <h4 class="mb-3 text-center">Iniciar sesión</h4>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label>Email</label>
+        <input type="email" class="form-control" formControlName="email" />
+        <div *ngIf="submitted && loginForm.controls['email'].invalid" class="text-danger">
+          Email requerido.
+        </div>
       </div>
-    </div>
-  
-    <div class="mb-3">
-      <label class="form-label">Contraseña</label>
-      <input type="password" class="form-control" formControlName="password" />
-      <div *ngIf="submitted && loginForm.controls['password'].invalid" class="text-danger">
-        Contraseña obligatoria.
+
+      <div class="mb-3">
+        <label>Contraseña</label>
+        <input type="password" class="form-control" formControlName="password" />
+        <div *ngIf="submitted && loginForm.controls['password'].invalid" class="text-danger">
+          Contraseña requerida.
+        </div>
       </div>
-    </div>
-  
-    <button class="btn btn-success" type="submit">Entrar</button>
-    <div *ngIf="error" class="text-danger mt-2">{{ error }}</div>
-  </form>
-  
+
+      <button class="btn btn-primary w-100" type="submit">Entrar</button>
+
+      <div *ngIf="error" class="text-danger mt-2">{{ error }}</div>
+    </form>
+  </div>
+</div>

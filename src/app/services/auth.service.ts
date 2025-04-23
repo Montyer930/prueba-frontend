@@ -43,7 +43,6 @@ export class AuthService {
   // Método para cerrar sesión (logout)
   logout(): void {
     localStorage.removeItem(this.tokenKey);
-    // Podríamos también limpiar estado de usuario, etc.
   }
 // Método para obtener el ID de la compañía del usuario
   getCompanyId(): number | null {

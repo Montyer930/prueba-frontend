@@ -1,6 +1,22 @@
-# Aplicación Frontend de Gestión de Productos
 
-Este proyecto ha sido generado con [Angular CLI](https://github.com/angular/angular-cli) versión 19.2.8.
+---
+
+## 📁 `frontend/README.md` (Angular)
+
+```md
+# Frontend - Prueba Técnica Fullstack (Angular)
+
+Este repositorio contiene el frontend de la prueba técnica fullstack, desarrollado con **Angular 19.2.8**. Este proyecto permite autenticarse, visualizar productos y gestionar datos consumiendo una API RESTful protegida con JWT.
+
+## 🔧 Tecnologías
+
+- Angular 19
+- Angular CLI
+- Bootstrap 5
+- Reactive Forms
+- Guards dinámicos
+- Interceptor HTTP para autenticación
+- Vercel para despliegue
 
 ## 📋 Requisitos Previos
 
@@ -26,7 +42,6 @@ cd prueba-frontend
 ```bash
 npm install
 ```
-
 ## 💻 Desarrollo
 
 ### Servidor de desarrollo
@@ -49,44 +64,30 @@ src/
   ├── environments/       # Configuraciones por ambiente
   └── assets/            # Recursos estáticos
 ```
+- `/services/` → llamadas a API, uso de promesas (`async/await`)
+- `/guards/` → verificación del token
+- `/components/` → vistas protegidas, formularios
+- `/interceptors/` → token en cada solicitud + manejo de errores
 
-### Generación de Código
+## 🔐 Autenticación
 
-Angular CLI incluye herramientas para generar componentes, servicios, pipes y más. Algunos comandos útiles:
+- Login con validación y JWT
+- El token se guarda en `localStorage` y se inyecta automáticamente en cada petición con un interceptor
+- Logout borra el token y redirige al login
 
-```bash
-# Generar un nuevo componente
-ng generate component nombre-componente
+## 🌐 Producción
 
-# Generar un nuevo servicio
-ng generate service nombre-servicio
+- App: [https://prueba-frontend.vercel.app](https://prueba-frontend.vercel.app)
+- Backend: [https://fullstacktestapi-production.up.railway.app](https://fullstacktestapi-production.up.railway.app)
 
-# Generar un nuevo módulo
-ng generate module nombre-modulo
-```
+## 🧪 Funcionalidades
 
-## 🛠️ Construcción
-
-Para construir el proyecto:
-```bash
-ng build
-```
-Los archivos de la construcción se almacenarán en el directorio `dist/`.
-
-Para una construcción de producción:
-```bash
-ng build --configuration production
-```
-
-## ⚡ Tests
-
-### Tests Unitarios
-
-Para ejecutar los tests unitarios:
-```bash
-ng test
-```
-Los tests se ejecutan con [Karma](https://karma-runner.github.io) y Jasmine.
+- Login y logout
+- Listado de productos de una compañía
+- Creación de productos (solo si estás autenticado)
+- Guards que restringen el acceso según autenticación
+- Formularios reactivos con validación en tiempo real
+- Manejo global de errores vía interceptor
 
 ### Tests End-to-End
 
@@ -95,44 +96,11 @@ Para ejecutar los tests end-to-end:
 ng e2e
 ```
 
-## 📚 Características Principales
+## 📁 Configuración del entorno
 
-- 🔐 Sistema de autenticación
-- 📦 Gestión de productos
-- 👤 Panel de administración
-- 🎨 Diseño responsive
-- 🌐 Integración con API REST
-
-## 🔧 Configuración
-
-El proyecto incluye diferentes configuraciones para desarrollo y producción en el directorio `environments/`. Asegúrate de configurar las variables de entorno según sea necesario.
-
-## 📝 Convenciones de Código
-
-Este proyecto sigue las guías de estilo oficiales de Angular:
-- Uso de TypeScript estricto
-- Nomenclatura en camelCase para métodos y propiedades
-- Nomenclatura en PascalCase para clases y componentes
-- Prefijos personalizados para componentes
-
-## 🤝 Contribución
-
-1. Crea un fork del proyecto
-2. Crea una nueva rama (`git checkout -b feature/nueva-caracteristica`)
-3. Realiza tus cambios y haz commit (`git commit -am 'Agrega nueva característica'`)
-4. Sube los cambios a tu fork (`git push origin feature/nueva-caracteristica`)
-5. Crea un Pull Request
-
-## 📮 Soporte
-
-Para reportar problemas o solicitar nuevas características, por favor utiliza la sección de Issues del repositorio.
-
-## 📄 Licencia
-
-Este proyecto está licenciado bajo la Licencia MIT - ver el archivo LICENSE.md para más detalles.
-
-## 🔗 Enlaces Útiles
-
-- [Documentación de Angular](https://angular.dev)
-- [Angular CLI Documentation](https://angular.dev/tools/cli)
-- [Angular Material](https://material.angular.io)
+```ts
+// src/environments/environment.prod.ts
+export const environment = {
+  production: true,
+  baseApiUrl: 'https://fullstacktestapi-production.up.railway.app'
+};

@@ -21,7 +21,8 @@ export class ProductsModule {
  }
 export interface Product {
   id: number;
-  name: string;
-  price: number;
-  // ... otros campos según tu API, por ejemplo description, stock, etc.
+  nombre: string;
+  precio: number;
+  categoria?: string;
+  compania_id: number;
 }

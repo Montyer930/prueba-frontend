@@ -1,28 +1,22 @@
-<form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="p-3 border rounded">
-    <h3>Crear Producto</h3>
-  
-    <div class="mb-3">
-      <label class="form-label">Nombre</label>
-      <input class="form-control" formControlName="name" />
-      <div *ngIf="submitted && productForm.controls['name'].invalid" class="text-danger">
-        El nombre es obligatorio.
-      </div>
-    </div>
-  
-    <div class="mb-3">
-      <label class="form-label">Descripción</label>
-      <textarea class="form-control" formControlName="description"></textarea>
-    </div>
-  
-    <div class="mb-3">
-      <label class="form-label">Precio</label>
-      <input type="number" class="form-control" formControlName="price" />
-      <div *ngIf="submitted && productForm.controls['price'].invalid" class="text-danger">
-        El precio debe ser mayor o igual a 0.
-      </div>
-    </div>
-  
-    <button class="btn btn-primary" type="submit">Guardar</button>
-    <div *ngIf="error" class="text-danger mt-2">{{ error }}</div>
-  </form>
-  
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="p-3 border rounded mb-4 bg-light">
+  <h5>Agregar producto</h5>
+
+  <div class="mb-2">
+    <label>Nombre</label>
+    <input class="form-control" formControlName="nombre" />
+  </div>
+
+  <div class="mb-2">
+    <label>Precio</label>
+    <input type="number" class="form-control" formControlName="precio" />
+  </div>
+
+  <div class="mb-2">
+    <label>Categoría</label>
+    <input class="form-control" formControlName="categoria" />
+  </div>
+
+  <button type="submit" class="btn btn-primary mt-2">Guardar</button>
+
+  <div *ngIf="error" class="text-danger mt-2">{{ error }}</div>
+</form>

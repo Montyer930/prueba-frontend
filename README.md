@@ -1,59 +1,138 @@
-# PruebaFrontend
+# Aplicación Frontend de Gestión de Productos
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.8.
+Este proyecto ha sido generado con [Angular CLI](https://github.com/angular/angular-cli) versión 19.2.8.
 
-## Development server
+## 📋 Requisitos Previos
 
-To start a local development server, run:
+Antes de comenzar, asegúrate de tener instalado:
 
+- Node.js (versión 14.x o superior)
+- npm (versión 6.x o superior)
+- Angular CLI (`npm install -g @angular/cli`)
+
+## 🚀 Instalación
+
+1. Clona el repositorio
+```bash
+git clone <URL_DEL_REPOSITORIO>
+```
+
+2. Navega al directorio del proyecto
+```bash
+cd prueba-frontend
+```
+
+3. Instala las dependencias
+```bash
+npm install
+```
+
+## 💻 Desarrollo
+
+### Servidor de desarrollo
+
+Para iniciar el servidor de desarrollo:
 ```bash
 ng serve
 ```
+Navega a `http://localhost:4200/` en tu navegador. La aplicación se recargará automáticamente cuando realices cambios en el código.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### Estructura del Proyecto
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+```
+src/
+  ├── app/
+  │   ├── admin/          # Módulo de administración
+  │   ├── auth/           # Módulo de autenticación
+  │   ├── products/       # Módulo de productos
+  │   └── services/       # Servicios compartidos
+  ├── environments/       # Configuraciones por ambiente
+  └── assets/            # Recursos estáticos
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### Generación de Código
+
+Angular CLI incluye herramientas para generar componentes, servicios, pipes y más. Algunos comandos útiles:
 
 ```bash
-ng generate --help
+# Generar un nuevo componente
+ng generate component nombre-componente
+
+# Generar un nuevo servicio
+ng generate service nombre-servicio
+
+# Generar un nuevo módulo
+ng generate module nombre-modulo
 ```
 
-## Building
+## 🛠️ Construcción
 
-To build the project run:
-
+Para construir el proyecto:
 ```bash
 ng build
 ```
+Los archivos de la construcción se almacenarán en el directorio `dist/`.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Para una construcción de producción:
+```bash
+ng build --configuration production
+```
 
-## Running unit tests
+## ⚡ Tests
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+### Tests Unitarios
 
+Para ejecutar los tests unitarios:
 ```bash
 ng test
 ```
+Los tests se ejecutan con [Karma](https://karma-runner.github.io) y Jasmine.
 
-## Running end-to-end tests
+### Tests End-to-End
 
-For end-to-end (e2e) testing, run:
-
+Para ejecutar los tests end-to-end:
 ```bash
 ng e2e
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## 📚 Características Principales
 
-## Additional Resources
+- 🔐 Sistema de autenticación
+- 📦 Gestión de productos
+- 👤 Panel de administración
+- 🎨 Diseño responsive
+- 🌐 Integración con API REST
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 🔧 Configuración
+
+El proyecto incluye diferentes configuraciones para desarrollo y producción en el directorio `environments/`. Asegúrate de configurar las variables de entorno según sea necesario.
+
+## 📝 Convenciones de Código
+
+Este proyecto sigue las guías de estilo oficiales de Angular:
+- Uso de TypeScript estricto
+- Nomenclatura en camelCase para métodos y propiedades
+- Nomenclatura en PascalCase para clases y componentes
+- Prefijos personalizados para componentes
+
+## 🤝 Contribución
+
+1. Crea un fork del proyecto
+2. Crea una nueva rama (`git checkout -b feature/nueva-caracteristica`)
+3. Realiza tus cambios y haz commit (`git commit -am 'Agrega nueva característica'`)
+4. Sube los cambios a tu fork (`git push origin feature/nueva-caracteristica`)
+5. Crea un Pull Request
+
+## 📮 Soporte
+
+Para reportar problemas o solicitar nuevas características, por favor utiliza la sección de Issues del repositorio.
+
+## 📄 Licencia
+
+Este proyecto está licenciado bajo la Licencia MIT - ver el archivo LICENSE.md para más detalles.
+
+## 🔗 Enlaces Útiles
+
+- [Documentación de Angular](https://angular.dev)
+- [Angular CLI Documentation](https://angular.dev/tools/cli)
+- [Angular Material](https://material.angular.io)

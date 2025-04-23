@@ -1,20 +1,24 @@
-<div class="product-list-container">
-    <app-product-form></app-product-form>
-    <hr />
-    <h2>Lista de Productos</h2>
-  
-    <!-- Mensaje de carga -->
-    <div *ngIf="loading">Cargando productos...</div>
-  
-    <!-- Mensaje de error -->
-    <div *ngIf="error" class="error">{{ error }}</div>
-  
-    <!-- Lista de productos -->
-    <ul *ngIf="!loading && !error">
-      <li *ngFor="let prod of products">
-        <strong>{{ prod.name }}</strong> - ${{ prod.price }}
-      </li>
-      <li *ngIf="products.length === 0">No hay productos disponibles.</li>
-    </ul>
+<div class="container mt-4">
+  <h2 class="mb-4">📦 Productos</h2>
+
+  <app-product-form (productoCreado)="ngOnInit()"></app-product-form>
+
+  <div *ngIf="loading" class="alert alert-info">Cargando productos...</div>
+  <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+
+  <div class="row mt-4" *ngIf="!loading && products.length > 0">
+    <div class="col-md-4 mb-3" *ngFor="let p of products">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">{{ p.nombre }}</h5>
+          <p class="card-text">💲{{ p.precio }}</p>
+          <p class="card-text text-muted">{{ p.categoria || 'Sin categoría' }}</p>
+        </div>
+      </div>
+    </div>
   </div>
-  
+
+  <div *ngIf="!loading && products.length === 0" class="alert alert-warning">
+    No hay productos aún.
+  </div>
+</div>

@@ -18,11 +18,16 @@ export class AuthService {
     const url = `${this.apiUrl}/login`;  // endpoint de login del API Rails (asumido)
     const body = { email, password };
     try {
-      const response = await firstValueFrom(this.http.post<{ token: string }>(url, body));
-      // Suponemos que la respuesta es un objeto JSON { token: <JWT> }
+      const response = await firstValueFrom(this.http.post<{ token: string; user: any }>(url, body));
+      // Suponemos que la respuesta es un objeto JSON { token: <JWT>, user: <user_data> }
       const token = response.token;
-      // Guardamos el token en localStorage para usarlo posteriormente
+      const user = response.user;
+      // Aquí podrías guardar el usuario en un servicio o estado global si lo necesitas
+      // Guardamos el token en localStorage
       localStorage.setItem(this.tokenKey, token);
+      // Guardamos los datos del usuario en localStorage (opcional)
+      localStorage.setItem('user_data', JSON.stringify(user));
+      // Aquí podrías también guardar el usuario en un servicio de estado global (ej. NgRx, BehaviorSubject, etc.)
       return token;
     } catch (error) {
       console.error('Error en login', error);
@@ -39,5 +44,10 @@ export class AuthService {
   logout(): void {
     localStorage.removeItem(this.tokenKey);
     // Podríamos también limpiar estado de usuario, etc.
+  }
+// Método para obtener el ID de la compañía del usuario
+  getCompanyId(): number | null {
+    const user = localStorage.getItem('user');
+    return user ? JSON.parse(user).compania_id : null;
   }
 }
